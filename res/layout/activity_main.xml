@@ -1,0 +1,61 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.speechrecognitionplayground.MainActivity"
+    android:id="@+id/lytMain" >
+
+    <Button
+        android:id="@+id/btnSpeak"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:onClick="btnSpeak_click"
+        android:text="Speak" />
+
+    <TextView
+        android:id="@+id/txtRecognized"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/txtChatbotResult"
+        android:layout_below="@+id/btnSpeak"
+        android:text="recognized text" />
+
+    <TextView
+        android:id="@+id/txtChatbotResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnSpeak"
+        android:layout_below="@+id/txtRecognized"
+        android:text="chatbot result" />
+    
+      <TextView
+        android:id="@+id/txtWolframResult"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btnSpeak"
+        android:layout_below="@+id/txtChatbotResult"
+        android:text="Wolfram|Alpha result" />
+
+      <ProgressBar
+          android:id="@+id/chatbotProgress"
+          style="?android:attr/progressBarStyleSmall"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignLeft="@+id/txtChatbotResult"
+          android:layout_alignTop="@+id/txtChatbotResult" />
+
+      <ProgressBar
+          android:id="@+id/wolframProgress"
+          style="?android:attr/progressBarStyleSmall"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignLeft="@+id/txtWolframResult"
+          android:layout_alignTop="@+id/txtWolframResult" />
+
+</RelativeLayout>
