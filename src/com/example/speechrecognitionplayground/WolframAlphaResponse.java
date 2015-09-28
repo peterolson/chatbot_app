@@ -2,9 +2,11 @@ package com.example.speechrecognitionplayground;
 
 import android.os.AsyncTask;
 import android.text.Html;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.koushikdutta.ion.Ion;
 import com.wolfram.alpha.WAEngine;
 import com.wolfram.alpha.WAException;
 import com.wolfram.alpha.WAImage;
@@ -14,49 +16,62 @@ import com.wolfram.alpha.WAQuery;
 import com.wolfram.alpha.WAQueryResult;
 import com.wolfram.alpha.WASubpod;
 
-public class WolframAlphaResponse extends AsyncTask<String, Void, String> {
+public class WolframAlphaResponse
+		extends
+			AsyncTask<String, Void, WAQueryResult> {
 	private static String APP_ID = "GP2JJR-JYHKU592H2";
-	
+
 	@Override
-	protected String doInBackground(String... params) {
+	protected WAQueryResult doInBackground(String... params) {
 		WAEngine engine = new WAEngine();
 		engine.setAppID(APP_ID);
-		engine.addFormat("plaintext");
-		// engine.addFormat("image");
-		
+		//engine.addFormat("plaintext");
+		engine.addFormat("image");
+
 		WAQuery query = engine.createQuery();
+		query.setMagnification(1.5);
+		query.setWidth(600);
 		query.setInput(params[0]);
 		try {
-			WAQueryResult queryResult = engine.performQuery(query);
-			StringBuilder html = new StringBuilder();
-			for (WAPod pod : queryResult.getPods()) {
-				if (pod.isError())
-					continue;
-				html.append("<b>" + pod.getTitle() + "</b><br>");
-				for (WASubpod subpod : pod.getSubpods()) {
-					for (Object o : subpod.getContents()) {
-						if (o instanceof WAImage) {
-							WAImage img = (WAImage) o;
-							html.append("<img src=\"" + img.getURL() + "\">");
-						}
-						if (o instanceof WAPlainText) {
-							WAPlainText txt = (WAPlainText) o;
-							html.append(txt.getText() + "<br>");
-						}
-					}
-				}
-			}
-			return html.toString();
+			return engine.performQuery(query);
+
 		} catch (WAException e) {
-			return "";
+			return null;
 		}
 	}
 
 	@Override
-	protected void onPostExecute(String result) {
-		MainActivity.txtWolframAlpha.setText(Html.fromHtml(result, null, null));
+	protected void onPostExecute(WAQueryResult result) {
 		MainActivity.wolframProgress.setVisibility(ProgressBar.INVISIBLE);
-		MainActivity.txtWolframAlpha.setVisibility(TextView.VISIBLE);
+		for (WAPod pod : result.getPods()) {
+			if (pod.isError())
+				continue;
+			String title = pod.getTitle();
+			TextView titleView = new TextView(MainActivity.context);
+			titleView.setText(Html.fromHtml("<b>" + title + "</b>"));
+			MainActivity.wolframContainer.addView(titleView);
+			for (WASubpod subpod : pod.getSubpods()) {
+				for (Object obj : subpod.getContents()) {
+					if (obj instanceof WAImage) {
+						WAImage img = (WAImage) obj;
+						ImageView imageView = new ImageView(
+								MainActivity.context);
+						MainActivity.wolframContainer.addView(imageView);
+						Ion.with(imageView)
+							.fadeIn(true)
+							.placeholder(R.drawable.loader)
+							.load(img.getURL());
+					} else if (obj instanceof WAPlainText) {
+						WAPlainText txt = (WAPlainText) obj;
+						TextView textView = new TextView(MainActivity.context);
+						textView.setText(txt.getText());
+						MainActivity.wolframProgress
+								.setVisibility(ProgressBar.INVISIBLE);
+						MainActivity.wolframContainer.addView(textView);
+					}
+				}
+			}
+		}
 	}
 
 }

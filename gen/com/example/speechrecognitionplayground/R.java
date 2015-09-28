@@ -1591,19 +1591,19 @@ containing a value of this type.
         public static final int abc_config_showMenuShortcutsWhenKeyboardPresent=0x7f070003;
     }
     public static final class color {
-        public static final int abc_background_cache_hint_selector_material_dark=0x7f080033;
-        public static final int abc_background_cache_hint_selector_material_light=0x7f080034;
+        public static final int abc_background_cache_hint_selector_material_dark=0x7f080034;
+        public static final int abc_background_cache_hint_selector_material_light=0x7f080035;
         public static final int abc_input_method_navigation_guard=0x7f080003;
-        public static final int abc_primary_text_disable_only_material_dark=0x7f080035;
-        public static final int abc_primary_text_disable_only_material_light=0x7f080036;
-        public static final int abc_primary_text_material_dark=0x7f080037;
-        public static final int abc_primary_text_material_light=0x7f080038;
-        public static final int abc_search_url_text=0x7f080039;
+        public static final int abc_primary_text_disable_only_material_dark=0x7f080036;
+        public static final int abc_primary_text_disable_only_material_light=0x7f080037;
+        public static final int abc_primary_text_material_dark=0x7f080038;
+        public static final int abc_primary_text_material_light=0x7f080039;
+        public static final int abc_search_url_text=0x7f08003a;
         public static final int abc_search_url_text_normal=0x7f080000;
         public static final int abc_search_url_text_pressed=0x7f080002;
         public static final int abc_search_url_text_selected=0x7f080001;
-        public static final int abc_secondary_text_material_dark=0x7f08003a;
-        public static final int abc_secondary_text_material_light=0x7f08003b;
+        public static final int abc_secondary_text_material_dark=0x7f08003b;
+        public static final int abc_secondary_text_material_light=0x7f08003c;
         public static final int accent_material_dark=0x7f08000f;
         public static final int accent_material_light=0x7f08000e;
         public static final int background_floating_material_dark=0x7f080006;
@@ -1661,10 +1661,11 @@ containing a value of this type.
         public static final int secondary_text_disabled_material_light=0x7f08002b;
         public static final int switch_thumb_disabled_material_dark=0x7f080014;
         public static final int switch_thumb_disabled_material_light=0x7f080015;
-        public static final int switch_thumb_material_dark=0x7f08003c;
-        public static final int switch_thumb_material_light=0x7f08003d;
+        public static final int switch_thumb_material_dark=0x7f08003d;
+        public static final int switch_thumb_material_light=0x7f08003e;
         public static final int switch_thumb_normal_material_dark=0x7f080012;
         public static final int switch_thumb_normal_material_light=0x7f080013;
+        public static final int white=0x7f080033;
     }
     public static final class dimen {
         /**  Default content inset of an action bar. 
@@ -1963,7 +1964,8 @@ containing a value of this type.
         public static final int bdspeech_right_redlight_normal=0x7f02005d;
         public static final int bdspeech_right_redlight_pressed=0x7f02005e;
         public static final int ic_launcher=0x7f02005f;
-        public static final int notification_template_icon_bg=0x7f020060;
+        public static final int loader=0x7f020060;
+        public static final int notification_template_icon_bg=0x7f020061;
     }
     public static final class id {
         public static final int action0=0x7f060052;
@@ -1986,7 +1988,7 @@ containing a value of this type.
         public static final int btnSpeak=0x7f06004c;
         public static final int buttonPanel=0x7f060036;
         public static final int cancel_action=0x7f060053;
-        public static final int chatbotProgress=0x7f060050;
+        public static final int chatbotProgress=0x7f06004f;
         public static final int checkbox=0x7f060038;
         public static final int chronometer=0x7f060059;
         public static final int collapseActionView=0x7f060014;
@@ -2056,11 +2058,11 @@ containing a value of this type.
         public static final int topPanel=0x7f06002e;
         public static final int txtChatbotResult=0x7f06004e;
         public static final int txtRecognized=0x7f06004d;
-        public static final int txtWolframResult=0x7f06004f;
         public static final int up=0x7f06001b;
         public static final int useLogo=0x7f060005;
         public static final int withText=0x7f060013;
-        public static final int wolframProgress=0x7f060051;
+        public static final int wolframContainer=0x7f060051;
+        public static final int wolframProgress=0x7f060050;
         public static final int wrap_content=0x7f060000;
     }
     public static final class integer {

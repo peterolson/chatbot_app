@@ -2,18 +2,15 @@ package com.example.speechrecognitionplayground;
 
 import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Locale;
 
 import org.apache.commons.io.IOUtils;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.content.res.Resources;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.speech.tts.TextToSpeech;
-import android.speech.tts.TextToSpeech.OnInitListener;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,8 +25,10 @@ public class MainActivity extends Activity {
 
 	private BaiduASRDigitalDialog mDialog;
 	private DialogRecognitionListener mRecognitionListener;
-	public static TextView txtChatbotResult, txtRecognized, txtWolframAlpha;
+	public static TextView txtChatbotResult, txtRecognized;
 	public static ProgressBar chatbotProgress, wolframProgress;
+	public static LinearLayout wolframContainer;
+	public static MainActivity context;
 	private Chatbot chatbot;
 
 	@Override
@@ -41,12 +40,14 @@ public class MainActivity extends Activity {
 
 		txtChatbotResult = (TextView) findViewById(R.id.txtChatbotResult);
 		txtRecognized = (TextView) findViewById(R.id.txtRecognized);
-		txtWolframAlpha = (TextView) findViewById(R.id.txtWolframResult);
 		
 		chatbotProgress = (ProgressBar) findViewById(R.id.chatbotProgress);
 		chatbotProgress.setVisibility(ProgressBar.INVISIBLE);
 		wolframProgress = (ProgressBar) findViewById(R.id.wolframProgress);
 		wolframProgress.setVisibility(ProgressBar.INVISIBLE);
+		
+		wolframContainer = (LinearLayout) findViewById(R.id.wolframContainer);
+		context = this;
 
 		Resources res = this.getResources();
 		InputStream stream = res.openRawResource(R.raw.data);
@@ -126,7 +127,7 @@ public class MainActivity extends Activity {
 				lastChatResponse.execute(text);
 
 				wolframProgress.setVisibility(ProgressBar.VISIBLE);
-				txtWolframAlpha.setVisibility(TextView.INVISIBLE);
+				MainActivity.wolframContainer.removeAllViews();
 				
 				if (lastWolframResponse != null) {
 					lastWolframResponse.cancel(true);
