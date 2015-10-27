@@ -447,7 +447,8 @@ int drawable bdspeech_right_redlight_normal 0x7f02005d
 int drawable bdspeech_right_redlight_pressed 0x7f02005e
 int drawable ic_launcher 0x7f02005f
 int drawable loader 0x7f020060
-int drawable notification_template_icon_bg 0x7f020061
+int drawable microphone 0x7f020061
+int drawable notification_template_icon_bg 0x7f020062
 int id action0 0x7f060052
 int id action_bar_activity_content 0x7f06001d
 int id action_bar_root 0x7f06003b
@@ -468,7 +469,7 @@ int id beginning 0x7f060017
 int id btnSpeak 0x7f06004c
 int id buttonPanel 0x7f060036
 int id cancel_action 0x7f060053
-int id chatbotProgress 0x7f06004f
+int id chatbotProgress 0x7f060050
 int id checkbox 0x7f060038
 int id chronometer 0x7f060059
 int id collapseActionView 0x7f060014
@@ -537,12 +538,12 @@ int id title 0x7f06002c
 int id title_template 0x7f06002f
 int id topPanel 0x7f06002e
 int id txtChatbotResult 0x7f06004e
-int id txtRecognized 0x7f06004d
+int id txtRecognized 0x7f06004f
 int id up 0x7f06001b
 int id useLogo 0x7f060005
 int id withText 0x7f060013
-int id wolframContainer 0x7f060051
-int id wolframProgress 0x7f060050
+int id wolframContainer 0x7f06004d
+int id wolframProgress 0x7f060051
 int id wrap_content 0x7f060000
 int integer abc_config_activityDefaultDur 0x7f0a0001
 int integer abc_config_activityShortDur 0x7f0a0000

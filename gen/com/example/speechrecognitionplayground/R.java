@@ -1965,7 +1965,8 @@ containing a value of this type.
         public static final int bdspeech_right_redlight_pressed=0x7f02005e;
         public static final int ic_launcher=0x7f02005f;
         public static final int loader=0x7f020060;
-        public static final int notification_template_icon_bg=0x7f020061;
+        public static final int microphone=0x7f020061;
+        public static final int notification_template_icon_bg=0x7f020062;
     }
     public static final class id {
         public static final int action0=0x7f060052;
@@ -1988,7 +1989,7 @@ containing a value of this type.
         public static final int btnSpeak=0x7f06004c;
         public static final int buttonPanel=0x7f060036;
         public static final int cancel_action=0x7f060053;
-        public static final int chatbotProgress=0x7f06004f;
+        public static final int chatbotProgress=0x7f060050;
         public static final int checkbox=0x7f060038;
         public static final int chronometer=0x7f060059;
         public static final int collapseActionView=0x7f060014;
@@ -2057,12 +2058,12 @@ containing a value of this type.
         public static final int title_template=0x7f06002f;
         public static final int topPanel=0x7f06002e;
         public static final int txtChatbotResult=0x7f06004e;
-        public static final int txtRecognized=0x7f06004d;
+        public static final int txtRecognized=0x7f06004f;
         public static final int up=0x7f06001b;
         public static final int useLogo=0x7f060005;
         public static final int withText=0x7f060013;
-        public static final int wolframContainer=0x7f060051;
-        public static final int wolframProgress=0x7f060050;
+        public static final int wolframContainer=0x7f06004d;
+        public static final int wolframProgress=0x7f060051;
         public static final int wrap_content=0x7f060000;
     }
     public static final class integer {

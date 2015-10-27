@@ -14,46 +14,15 @@
         android:paddingTop="@dimen/activity_vertical_margin"
         tools:context="com.example.speechrecognitionplayground.MainActivity" >
 
-        <Button
+         <ImageButton
             android:id="@+id/btnSpeak"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:scaleType="fitCenter"
             android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
             android:onClick="btnSpeak_click"
-            android:text="Speak" />
-
-        <TextView
-            android:id="@+id/txtRecognized"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/txtChatbotResult"
-            android:layout_below="@+id/btnSpeak"
-            android:text="recognized text" />
-
-        <TextView
-            android:id="@+id/txtChatbotResult"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/btnSpeak"
-            android:layout_below="@+id/txtRecognized"
-            android:text="chatbot result" />
-
-        <ProgressBar
-            android:id="@+id/chatbotProgress"
-            style="?android:attr/progressBarStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/txtChatbotResult"
-            android:layout_alignTop="@+id/txtChatbotResult" />
-
-        <ProgressBar
-            android:id="@+id/wolframProgress"
-            style="?android:attr/progressBarStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/btnSpeak"
-            android:layout_below="@+id/txtChatbotResult" />
+            android:src="@drawable/microphone" />
 
         <LinearLayout
             android:id="@+id/wolframContainer"
@@ -62,6 +31,37 @@
             android:layout_below="@+id/txtChatbotResult"
             android:orientation="vertical" >
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtRecognized"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/btnSpeak" />
+
+        <TextView
+            android:id="@+id/txtChatbotResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/txtRecognized" />
+        
+         <ProgressBar
+            android:id="@+id/chatbotProgress"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/txtChatbotResult"
+            android:layout_alignTop="@+id/txtChatbotResult" />
+
+        <ProgressBar
+            android:id="@+id/wolframProgress"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/txtChatbotResult"
+            android:layout_alignTop="@+id/txtChatbotResult" />
+
     </RelativeLayout>
 
 </ScrollView>

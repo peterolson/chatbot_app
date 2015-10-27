@@ -29,7 +29,7 @@ public class MainActivity extends Activity {
 	public static ProgressBar chatbotProgress, wolframProgress;
 	public static LinearLayout wolframContainer;
 	public static MainActivity context;
-	private Chatbot chatbot;
+	public static Chatbot chatbot;
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -102,8 +102,8 @@ public class MainActivity extends Activity {
 //		}
 //	}
 
-	private ChatBotResponse lastChatResponse = null;
-	private WolframAlphaResponse lastWolframResponse = null;
+	private static ChatBotResponse lastChatResponse = null;
+	private static WolframAlphaResponse lastWolframResponse = null;
 
 	private void init() {
 		mRecognitionListener = new DialogRecognitionListener() {
@@ -117,52 +117,34 @@ public class MainActivity extends Activity {
 				String text = rs.get(0);
 				txtRecognized.setText(text);
 				
-				chatbotProgress.setVisibility(ProgressBar.VISIBLE);
 				txtChatbotResult.setVisibility(TextView.INVISIBLE);
-				
-				if (lastChatResponse != null) {
-					lastChatResponse.cancel(true);
-				}
-				lastChatResponse = new ChatBotResponse();
-				lastChatResponse.execute(text);
-
-				wolframProgress.setVisibility(ProgressBar.VISIBLE);
-				MainActivity.wolframContainer.removeAllViews();
-				
-				if (lastWolframResponse != null) {
-					lastWolframResponse.cancel(true);
-				}
-				lastWolframResponse = new WolframAlphaResponse();
-				lastWolframResponse.execute(text);
+				showWolframResponse(text);
 			}
 		};
 		mDialog.setDialogRecognitionListener(mRecognitionListener);
 		Toast.makeText(this, "Loaded!", Toast.LENGTH_LONG).show();
 	}
-
-	private class ChatBotResponse extends AsyncTask<String, Void, String> {
-
-		@Override
-		protected String doInBackground(String... args) {
-			String text = args[0];
-			String response;
-			try {
-				response = chatbot.replyTo(text);
-				return response;
-			} catch (Exception e) {
-				e.getStackTrace();
-			}
-			return "Could not get response. :(";
+	
+	public static void showChatResponse(String text) {
+		chatbotProgress.setVisibility(ProgressBar.VISIBLE);
+		txtChatbotResult.setVisibility(TextView.INVISIBLE);
+		
+		if (lastChatResponse != null) {
+			lastChatResponse.cancel(true);
 		}
-
-		@Override
-		protected void onPostExecute(String response) {
-			// tts.stop(); 
-			// tts.speak(response, TextToSpeech.QUEUE_FLUSH, null);
-			txtChatbotResult.setText(response);
-			txtChatbotResult.setVisibility(TextView.VISIBLE);
-			chatbotProgress.setVisibility(ProgressBar.INVISIBLE);
+		lastChatResponse = new ChatBotResponse();
+		lastChatResponse.execute(text);
+	}
+	
+	private void showWolframResponse(String text) {
+		wolframProgress.setVisibility(ProgressBar.VISIBLE);
+		MainActivity.wolframContainer.removeAllViews();
+		
+		if (lastWolframResponse != null) {
+			lastWolframResponse.cancel(true);
 		}
+		lastWolframResponse = new WolframAlphaResponse();
+		lastWolframResponse.execute(text);
 	}
 
 	public void btnSpeak_click(View v) {
